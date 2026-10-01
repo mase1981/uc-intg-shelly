@@ -1,0 +1,34 @@
+#!/bin/bash
+set -e
+
+get_driver_version() {
+  jq -r '.version' driver.json
+}
+
+get_pyproject_version() {
+  grep -E '^\s*version\s*=' pyproject.toml | head -n 1 | sed -E 's/.*=\s*"([^"]+)".*/\1/'
+}
+
+while read local_ref local_sha remote_ref remote_sha
+do
+  if [[ "$local_ref" =~ ^refs/tags/ ]]; then
+    tag_name="${local_ref#refs/tags/}"
+
+    driver_version=$(get_driver_version)
+    pyproject_version=$(get_pyproject_version)
+
+    if [[ "$driver_version" != "$pyproject_version" ]]; then
+      echo "❌ driver.json ($driver_version) and pyproject.toml ($pyproject_version) have different versions."
+      exit 1
+    fi
+
+    normalized_tag="${tag_name#v}"
+
+    if [[ "$normalized_tag" != "$driver_version" ]]; then
+      echo "❌ Tag ($tag_name) does not match version ($driver_version) in driver.json/pyproject.toml."
+      exit 1
+    fi
+
+    echo "✅ Version check passed for tag $tag_name"
+  fi
+done

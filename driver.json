@@ -1,0 +1,39 @@
+{
+  "driver_id": "shelly",
+  "version": "1.0.2",
+  "min_core_api": "0.22.0",
+  "name": {
+    "en": "Shelly"
+  },
+  "icon": "uc:home",
+  "description": {
+    "en": "Control Shelly smart-home devices (Gen1, Gen2/Plus/Pro, Gen3 and Gen4) over your local network. Relays and plugs as switches, dimmers, RGB/RGBW/CCT bulbs and LED controllers as lights, roller shutters and blinds (with tilt) as covers, Wall Display and BLU TRV thermostats as climate, power/energy/voltage/current/temperature/humidity/illuminance/battery sensors, door/window, motion, flood and smoke binary sensors, virtual components, scripts, reboot and firmware-update buttons, Wall Display media player and a full remote for activities. Realtime push over WebSocket for Gen2+ devices. No cloud account required."
+  },
+  "developer": {
+    "name": "Meir Miyara",
+    "email": "meir.miyara@gmail.com",
+    "url": "https://github.com/mase1981"
+  },
+  "home_page": "https://github.com/mase1981/uc-intg-shelly",
+  "release_date": "2026-10-01",
+  "setup_data_schema": {
+    "title": {
+      "en": "Shelly Device Setup"
+    },
+    "settings": [
+      {
+        "id": "info",
+        "label": {
+          "en": "Shelly Device"
+        },
+        "field": {
+          "label": {
+            "value": {
+              "en": "On the next screen your Shelly devices are discovered automatically. Leave the IP address blank to auto-discover, or enter it manually. If the device is password protected, enter the password (and the username for Gen1 devices). Repeat the setup to add more Shelly devices."
+            }
+          }
+        }
+      }
+    ]
+  }
+}

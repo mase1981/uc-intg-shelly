@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uc-intg-shelly"
+description = "Shelly integration for Unfolded Circle Remote Two/3"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MPL-2.0"}
+version = "1.0.2"
+authors = [
+    {name = "Meir Miyara", email = "meir.miyara@gmail.com"}
+]
+keywords = ["shelly", "relay", "dimmer", "cover", "smart-home", "unfolded-circle", "remote", "integration"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Home Automation",
+]
+dependencies = [
+    "ucapi>=0.7.0",
+    "ucapi-framework>=1.9.5",
+    "aiohttp>=3.9.0",
+    "zeroconf>=0.132.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/mase1981/uc-intg-shelly"
+"Bug Reports" = "https://github.com/mase1981/uc-intg-shelly/issues"
+"Source" = "https://github.com/mase1981/uc-intg-shelly"
+
+[project.scripts]
+uc-intg-shelly = "uc_intg_shelly:main"
+
+[tool.setuptools.packages.find]
+include = ["uc_intg_shelly*"]
+
+[tool.setuptools.package-data]
+uc_intg_shelly = ["*.json"]
