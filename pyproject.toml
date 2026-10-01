@@ -8,7 +8,7 @@ description = "Shelly integration for Unfolded Circle Remote Two/3"
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MPL-2.0"}
-version = "1.0.2"
+version = "1.0.3"
 authors = [
     {name = "Meir Miyara", email = "meir.miyara@gmail.com"}
 ]
